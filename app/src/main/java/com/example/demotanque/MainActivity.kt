@@ -2,6 +2,7 @@ package com.example.demotanque
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var obtn1 : Button
     private lateinit var obtn2 : Button
     private lateinit var olts : TextView
+    private lateinit var tanque : ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,12 +48,13 @@ class MainActivity : AppCompatActivity() {
         obtn1 = findViewById<Button>(R.id.btn1)
         obtn2 = findViewById<Button>(R.id.btn2)
         olts = findViewById<TextView>(R.id.lts)
-
+        tanque = findViewById<ImageView>(R.id.tank)
     }
 
     private fun initListeners() {
         obtn1.setOnClickListener {
             litrosAct += 1
+            tanque.setImageResource(R.drawable.tanquedemo6)
             setLts()
         }
         obtn2.setOnClickListener {
@@ -68,6 +71,7 @@ class MainActivity : AppCompatActivity() {
     private fun initUI()
     {
         setLts()
+        tanque.setImageResource(R.drawable.tanquedemo5)
     }
 
 
