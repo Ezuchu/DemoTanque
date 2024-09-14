@@ -1,13 +1,26 @@
 package com.example.demotanque
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.PackageManagerCompat.LOG_TAG
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonArrayRequest
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
+import kotlinx.coroutines.Runnable
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,10 +28,12 @@ class MainActivity : AppCompatActivity() {
     private var max : Int = 100
     private var por : Int = 0
 
+    private lateinit var handler: Handler
     private lateinit var obtn1 : Button
     private lateinit var obtn2 : Button
     private lateinit var olts : TextView
     private lateinit var opor : TextView
+    private lateinit var Prueba : TextView
     private lateinit var tanque : ImageView
 
 
@@ -39,6 +54,9 @@ class MainActivity : AppCompatActivity() {
         initListeners()
         initUI()
 
+        handler = Handler(Looper.getMainLooper())
+        runlogs()
+
 
 
 
@@ -46,7 +64,17 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun runlogs() {
+        handler.postDelayed(myrunnable,5000)
+    }
 
+    val myrunnable : Runnable = object : Runnable
+    {
+        override fun run() {
+            setp()
+            handler.postDelayed(this,5000)
+        }
+    }
 
     private fun initComponents() {
         obtn1 = findViewById<Button>(R.id.btn1)
@@ -54,6 +82,7 @@ class MainActivity : AppCompatActivity() {
         olts = findViewById<TextView>(R.id.lts)
         opor = findViewById<TextView>(R.id.porc)
         tanque = findViewById<ImageView>(R.id.tank)
+        Prueba = findViewById(R.id.Prueba)
     }
 
     private fun initListeners() {
@@ -121,10 +150,26 @@ class MainActivity : AppCompatActivity() {
         setimg()
     }
 
+    private fun setp()
+    {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://localhost/Sistemas-Valid/Users/Adm/habitaciones/Registros.php?id=3"
+        val stringRequest = StringRequest(Request.Method.GET,url,
+            Response.Listener<String> { response->
+                Prueba.text = response.toString()
+            },Response.ErrorListener { response-> Prueba.text = "XD" })
+
+        queue.add(stringRequest)
+
+    }
+
     private fun initUI()
     {
         setLts()
+
     }
+
 
 
 }
