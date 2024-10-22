@@ -106,39 +106,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun setimg()
     {
-        if(por < 10)
+        if(por < 1)
         {
-            tanque.setImageResource(R.drawable.tanquedemo1)
-        }else if(por < 20)
+            tanque.setImageResource(R.drawable.tank_0)
+        }else if(por <= 40)
         {
-            tanque.setImageResource(R.drawable.tanquedemo2)
-        }else if(por < 30)
+            tanque.setImageResource(R.drawable.tank_1_40)
+        }else if(por <= 70)
         {
-            tanque.setImageResource(R.drawable.tanquedemo3)
-        }else if(por < 40)
+            tanque.setImageResource(R.drawable.tank_41_70)
+        }else if(por <= 90)
         {
-            tanque.setImageResource(R.drawable.tanquedemo4)
-        }else if(por < 50)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo5)
-        }else if(por < 60)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo6)
-        }else if(por < 70)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo7)
-        }else if(por < 80)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo8)
-        }else if(por < 90)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo9)
-        }else if(por < 100)
-        {
-            tanque.setImageResource(R.drawable.tanquedemo10)
-        }else
-        {
-            tanque.setImageResource(R.drawable.tanquedemo11)
+            tanque.setImageResource(R.drawable.tank_71_90)
+        }else{
+            tanque.setImageResource((R.drawable.tank_91_100))
         }
     }
 
