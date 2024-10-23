@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Prueba : TextView
     private lateinit var tanque : ImageView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -47,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        //PENES MUY NEGROS
 
 
         initComponents()
@@ -56,9 +55,6 @@ class MainActivity : AppCompatActivity() {
 
         handler = Handler(Looper.getMainLooper())
         runlogs()
-
-
-
 
 
 
