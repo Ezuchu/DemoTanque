@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var Prueba : TextView
     private lateinit var tanque : ImageView
 
-    //Hola
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
